@@ -36,6 +36,10 @@ defmodule OrdersTaskTest do
     assert_raise ArgumentError, "quantity must be an integer", fn ->
       OrdersTask.new_item(12, "32")
     end
+
+    assert_raise ArgumentError, "net_price must be either integer or float in string form", fn ->
+      OrdersTask.new_item(12.99, 12)
+    end
   end
 
   test "create new order works" do

@@ -11,9 +11,8 @@ defmodule OrdersTask.OrderItem do
           total: Decimal.t() | nil
         }
 
-
-  @spec new(number() | String.t(), integer()) :: t()
-  def new(net_price, quantity) when is_integer(quantity) do
+  @spec new(integer() | String.t(), integer()) :: t()
+  def new(net_price, quantity) when is_integer(quantity) and not is_float(net_price) do
     net_price = Decimal.new(net_price)
     quantity = quantity
 
@@ -23,6 +22,10 @@ defmodule OrdersTask.OrderItem do
       net_total: Decimal.mult(net_price, quantity)
     }
     |> calculate_total()
+  end
+
+  def new(net_price, _quantity) when is_float(net_price) do
+    raise ArgumentError, "net_price must be either integer or float in string form"
   end
 
   def new(_net_price, _quantity) do
