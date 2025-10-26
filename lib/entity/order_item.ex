@@ -1,5 +1,4 @@
 defmodule OrdersTask.OrderItem do
-  alias Decimal
 
   @tax_rate Decimal.new(23)
 

@@ -1,6 +1,5 @@
 defmodule OrdersTask.Order do
   alias OrdersTask.OrderItem
-  alias Decimal
 
   defstruct net_total: Decimal.new(0),
             tax: Decimal.new(0),
