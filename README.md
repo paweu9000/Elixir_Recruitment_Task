@@ -23,6 +23,9 @@ Są 3 funkcje:
 3. OrdersTask.add_item(Order, OrderItem) - Dodaje OrderItem do Orderu i kalkuluje przy tym pola orderu
 
 ```bash
+git clone git@github.com:paweu9000/Elixir_Recruitment_Task.git
+cd Elixir_Recruitment_Task
+mix deps.get
 iex -S mix
 ```
 
